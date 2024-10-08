@@ -1,0 +1,11 @@
+import network
+
+def get_mac():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)  # Activar la interfaz de red
+    mac = wlan.config("mac")  # Obtener la dirección MAC
+    mac_address = ":".join("%02X" % b for b in mac)  # Formatear la dirección MAC
+    return mac_address
+
+mac_address = get_mac()
+print("La dirección MAC de tu ESP32 es:", mac_addr
